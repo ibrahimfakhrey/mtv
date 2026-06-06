@@ -38,6 +38,10 @@ mail = Mail(app)
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-only-change-me')
 
+# Tell browsers (and any CDN) to cache static files for 30 days.
+# Image/CSS/JS URLs in this app don't change, so this is safe.
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 60 * 60 * 24 * 30  # 30 days
+
 # Database URI: use DATABASE_URL env var if set (Railway), otherwise default to
 # the local instance/users.db that Flask-SQLAlchemy creates by default.
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
