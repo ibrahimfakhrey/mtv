@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Meerim Visionary Training - Admin Dashboard">
+    <title>Admin Dashboard - Meerim Visionary Training</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== LUXURY DESIGN SYSTEM ===== */
+        :root {
+            --primary: #52C4DC;
+            --accent: #C9A24A;
+            --success: #4ade80;
+            --danger: #f87171;
+            --warning: #fbbf24;
+            --bg-dark: #0A0E1A;
+            --bg-grad: linear-gradient(135deg, #0A0E1A 0%, #1A2332 50%, #0F1419 100%);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-strong: rgba(255, 255, 255, 0.1);
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8C5D1;
+            --text-muted: #7A8B99;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-grad);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== BACK TO HOME BUTTON ===== */
+        .back-to-home {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-strong);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+        }
+
+        .back-to-home:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-strong);
+            color: #FFFFFF;
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass-strong);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1001;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .admin-container {
+            max-width: 1400px;
+            margin: 6rem auto 2rem;
+            padding: 0 1rem;
+        }
+
+        /* ===== HEADER ===== */
+        .admin-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .admin-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-strong);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* ===== FORMS ===== */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition-fast);
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="file"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(82, 196, 220, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: 0 4px 15px rgba(82, 196, 220, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(82, 196, 220, 0.5);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #f87171, #dc2626);
+            box-shadow: 0 4px 15px rgba(248, 113, 113, 0.3);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(248, 113, 113, 0.5);
+        }
+
+        .btn-add {
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ===== TABLES ===== */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(82, 196, 220, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--primary);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        tr {
+            transition: var(--transition-fast);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        td img {
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== QUESTION BLOCK ===== */
+        .question-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-block h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* ===== LIGHT MODE ===== */
+        :root.light-mode {
+            --primary: #2563EB;
+            --accent: #DC2626;
+            --bg-dark: #FAFAFA;
+            --bg-grad: linear-gradient(135deg, #FAFAFA 0%, #F1F5F9 50%, #E2E8F0 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+            --glass-strong: rgba(255, 255, 255, 0.9);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        :root.light-mode .section {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        :root.light-mode th {
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        :root.light-mode td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        :root.light-mode tr:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        :root.light-mode input[type="text"],
+        :root.light-mode input[type="number"],
+        :root.light-mode input[type="file"],
+        :root.light-mode select,
+        :root.light-mode textarea {
+            background: rgba(0, 0, 0, 0.03);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            color: var(--text-primary);
+        }
+
+        :root.light-mode input[type="text"]:focus,
+        :root.light-mode input[type="number"]:focus,
+        :root.light-mode select:focus,
+        :root.light-mode textarea:focus {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        :root.light-mode .question-block {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        :root.light-mode .back-to-home,
+        :root.light-mode .theme-toggle {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .admin-container {
+                margin-top: 5rem;
+            }
+
+            .admin-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .back-to-home {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .admin-title {
+                font-size: 1.75rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+
+            .back-to-home span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back to Home Button -->
+<button onclick="location.href='{{ url_for('main') }}'" class="back-to-home">
+    <i class="fas fa-arrow-left"></i>
+    <span>Back to Home</span>
+</button>
+
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon" id="themeIcon"></i>
+</button>
+
+<!-- Main Admin Container -->
+<div class="admin-container">
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <h1 class="admin-title">Admin Dashboard</h1>
+        <p class="admin-subtitle">Manage users, files, and tests</p>
+    </div>
+
+    <!-- Registered Users Section -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-users"></i>
+            Registered Users
+        </h2>
+        {% if users %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-user"></i> First Name</th>
+                        <th><i class="fas fa-user"></i> Last Name</th>
+                        <th><i class="fas fa-at"></i> Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.first_n }}</td>
+                        <td>{{ user.last_n }}</td>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-user-slash"></i>
+            <p>No registered users yet.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Upload Files Section -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-cloud-upload-alt"></i>
+            Upload Files
+        </h2>
+        <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file"><i class="fas fa-file-pdf"></i> Select PDF File</label>
+                <input type="file" name="file" id="file" accept=".pdf" required>
+            </div>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-upload"></i> Upload File
+            </button>
+        </form>
+    </div>
+
+    <!-- Uploaded Files Section -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-folder-open"></i>
+            Uploaded Files
+        </h2>
+        {% if uploaded_files %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-file"></i> Filename</th>
+                        <th><i class="fas fa-image"></i> Cover Image</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in uploaded_files %}
+                    <tr>
+                        <td>{{ file.filename }}</td>
+                        <td>
+                            <img src="{{ url_for('static', filename='uploads/' ~ file.cover_image_filename) }}" 
+                                 alt="Cover Image" width="100">
+                        </td>
+                        <td>
+                            <form action="{{ url_for('delete_file', file_id=file.id) }}" method="post" 
+                                  onsubmit="return confirm('Are you sure you want to delete this file?');">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-folder-open"></i>
+            <p>No files uploaded yet.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Upload File for Student Section -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-user-graduate"></i>
+            Upload File for Student
+        </h2>
+        <form method="POST" action="{{ url_for('upload_student_file') }}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="student_id"><i class="fas fa-user"></i> Select Student</label>
+                <select name="student_id" id="student_id" required>
+                    <option value="">-- Choose Student --</option>
+                    {% for student in users %}
+                    <option value="{{ student.id }}">{{ student.first_n }} {{ student.last_n }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="file_category"><i class="fas fa-tag"></i> Category</label>
+                <select name="file_category" id="file_category" required>
+                    <option value="">-- Choose Category --</option>
+                    <option value="course_content">Course Content</option>
+                    <option value="certificate">Certificate</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="student_file"><i class="fas fa-file"></i> Select File</label>
+                <input type="file" name="file" id="student_file" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-upload"></i> Upload File
+            </button>
+        </form>
+    </div>
+
+    <!-- Student Files - Course Content -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-book"></i>
+            Student Files - Course Content
+        </h2>
+        {% if course_contents %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-user-graduate"></i> Student</th>
+                        <th><i class="fas fa-file"></i> Filename</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in course_contents %}
+                    <tr>
+                        <td>{{ file.student.first_n }} {{ file.student.last_n }}</td>
+                        <td>{{ file.filename }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('delete_student_file', file_id=file.id, category='course_content') }}" 
+                                  onsubmit="return confirm('Are you sure you want to delete this file?');">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-book-open"></i>
+            <p>No course content uploaded yet.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Student Files - Certificates -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-certificate"></i>
+            Student Files - Certificates
+        </h2>
+        {% if certificates %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-user-graduate"></i> Student</th>
+                        <th><i class="fas fa-file"></i> Filename</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in certificates %}
+                    <tr>
+                        <td>{{ file.student.first_n }} {{ file.student.last_n }}</td>
+                        <td>{{ file.filename }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('delete_student_file', file_id=file.id, category='certificate') }}" 
+                                  onsubmit="return confirm('Are you sure you want to delete this file?');">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-award"></i>
+            <p>No certificates uploaded yet.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Create Test Section -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-plus-circle"></i>
+            Create a Test
+        </h2>
+        <form method="POST" action="{{ url_for('create_test') }}">
+            <div class="form-group">
+                <label for="title"><i class="fas fa-heading"></i> Test Title</label>
+                <input type="text" name="title" id="title" placeholder="Enter test title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="testType"><i class="fas fa-list"></i> Test Type</label>
+                <select name="test_type" id="testType" onchange="generateInitialForm()" required>
+                    <option value="">-- Select Type --</option>
+                    <option value="multiple_choice">Multiple Choice</option>
+                    <option value="true_false">True / False</option>
+                    <option value="written">Written</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="time_limit"><i class="fas fa-clock"></i> Time Limit (minutes)</label>
+                <input type="number" name="time_limit" id="time_limit" placeholder="Enter time limit" required>
+            </div>
+
+            <h3 style="color: var(--text-primary); margin: 2rem 0 1rem; font-size: 1.3rem;">
+                <i class="fas fa-question-circle"></i> Questions
+            </h3>
+            <div id="questionForm"></div>
+            
+            <div class="button-group">
+                <button type="button" onclick="addQuestion()" class="btn btn-add">
+                    <i class="fas fa-plus"></i> Add Question
+                </button>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-check"></i> Create Test
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Existing Tests Section -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-clipboard-list"></i>
+            Existing Tests
+        </h2>
+        {% if tests %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-heading"></i> Title</th>
+                        <th><i class="fas fa-list"></i> Type</th>
+                        <th><i class="fas fa-clock"></i> Time Limit (min)</th>
+                        <th><i class="fas fa-cog"></i> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for test in tests %}
+                    <tr>
+                        <td>{{ test.title }}</td>
+                        <td>{{ test.test_type }}</td>
+                        <td>{{ test.time_limit }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('delete_test', test_id=test.id) }}" 
+                                  onsubmit="return confirm('Are you sure you want to delete this test?');">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-clipboard"></i>
+            <p>No tests created yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+// Theme Toggle Functionality
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const root = document.documentElement;
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+        root.classList.add('light-mode');
+        themeIcon.className = 'fas fa-sun';
+    } else {
+        root.classList.remove('light-mode');
+        themeIcon.className = 'fas fa-moon';
+    }
+    
+    themeToggle.addEventListener('click', function() {
+        if (root.classList.contains('light-mode')) {
+            root.classList.remove('light-mode');
+            themeIcon.className = 'fas fa-moon';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            root.classList.add('light-mode');
+            themeIcon.className = 'fas fa-sun';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
+// Test Creation Functionality
+let questionCount = 0;
+
+function generateInitialForm() {
+    document.getElementById('questionForm').innerHTML = '';
+    questionCount = 0;
+    addQuestion();
+}
+
+function addQuestion() {
+    const type = document.getElementById('testType').value;
+    if (!type) {
+        alert("Please select a test type first.");
+        return;
+    }
+
+    questionCount++;
+    const container = document.getElementById('questionForm');
+
+    let block = `<div class="question-block">
+        <h4><i class="fas fa-question-circle"></i> Question ${questionCount}</h4>
+        <div class="form-group">
+            <label>Question Text</label>
+            <input type="text" name="question_${questionCount}" placeholder="Enter question text" required>
+        </div>`;
+
+    if (type === 'multiple_choice') {
+        block += `
+            <div class="form-group">
+                <label>Choice 1</label>
+                <input type="text" name="choice_${questionCount}_1" placeholder="Enter choice 1" required>
+            </div>
+            <div class="form-group">
+                <label>Choice 2</label>
+                <input type="text" name="choice_${questionCount}_2" placeholder="Enter choice 2" required>
+            </div>
+            <div class="form-group">
+                <label>Choice 3</label>
+                <input type="text" name="choice_${questionCount}_3" placeholder="Enter choice 3" required>
+            </div>
+            <div class="form-group">
+                <label>Choice 4</label>
+                <input type="text" name="choice_${questionCount}_4" placeholder="Enter choice 4" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-check"></i> Correct Answer</label>
+                <select name="correct_${questionCount}" required>
+                    <option value="">-- Select Correct Answer --</option>
+                    <option value="1">Choice 1</option>
+                    <option value="2">Choice 2</option>
+                    <option value="3">Choice 3</option>
+                    <option value="4">Choice 4</option>
+                </select>
+            </div>
+        `;
+    } else if (type === 'true_false') {
+        block += `
+            <div class="form-group">
+                <label><i class="fas fa-check"></i> Correct Answer</label>
+                <select name="correct_${questionCount}" required>
+                    <option value="">-- Select Correct Answer --</option>
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                </select>
+            </div>
+        `;
+    } else if (type === 'written') {
+        block += `
+            <div class="form-group">
+                <label>Correct Answer (Optional)</label>
+                <textarea name="correct_${questionCount}" placeholder="Enter answer (optional)" rows="3"></textarea>
+            </div>
+        `;
+    }
+
+    block += `</div>`;
+    container.innerHTML += block;
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    initThemeToggle();
+});
+</script>
+
+</body>
+</html>

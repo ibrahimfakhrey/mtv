@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+  <style>
+  /* Basic Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  li strong {
+    color: #555;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  .correct {
+    color: green;
+  }
+
+  .incorrect {
+    color: red;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  a:hover {
+    background-color: #007bff;
+    color: white;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    li {
+      padding: 10px;
+    }
+
+    a {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<h2>{{ test.title }} - Result</h2>
+<p><strong>Score:</strong> {{ score }}%</p>
+
+<ul>
+  {% for item in result %}
+    <li>
+      <strong>Q:</strong> {{ item.question }}<br>
+      <strong>Your Answer:</strong> {{ item.student_answer }}<br>
+      <strong>Correct Answer:</strong> {{ item.correct_answer }}<br>
+      {% if item.is_correct %}
+        <span style="color: green;">✔ Correct</span>
+      {% else %}
+        <span style="color: red;">✘ Incorrect</span>
+      {% endif %}
+      <hr>
+    </li>
+  {% endfor %}
+</ul>
+
+
+<a href="{{ url_for('student_dashboard') }}">Back to Dashboard</a>
+
+
+</body>
+</html>

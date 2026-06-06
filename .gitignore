@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Flask instance folder (contains the SQLite DB locally)
+instance/
+
+# Uploaded files (user content — should live in the Railway volume, not in git)
+static/uploads/*
+!static/uploads/.gitkeep
+
+# OS junk
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Backups / archives
+*.zip
+*.bak
+users.db
+*.db-journal

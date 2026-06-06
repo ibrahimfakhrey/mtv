@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Meerim Visionary Training</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/bootstrap4/bootstrap.min.css">
+    <link href="../static/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/responsive.css">
+    <link rel="stylesheet" href="../static/styles/luxury.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== LUXURY DESIGN SYSTEM ===== */
+        :root {
+          --primary: #3B82F6;
+          --accent: #EF4444;
+          --bg-dark: #0A0E1A;
+          --bg-grad: linear-gradient(135deg, #0A0E1A 0%, #1A2332 50%, #2D3748 100%);
+          --glass: rgba(255, 255, 255, 0.1);
+          --glass-strong: rgba(255, 255, 255, 0.2);
+          --text-primary: #FFFFFF;
+          --text-secondary: #CBD5E1;
+          --text-muted: #94A3B8;
+          --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+          --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.5);
+          --border-radius: 16px;
+          --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          background: var(--bg-grad);
+          color: var(--text-primary);
+          line-height: 1.6;
+          overflow-x: hidden;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== LUXURY HEADER ===== */
+        .luxury-header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          background: rgba(10, 14, 26, 0.95);
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          transition: var(--transition);
+        }
+
+        .header-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 1.5rem;
+          max-width: 1600px;
+          margin: 0 auto;
+          gap: 2rem;
+          position: relative;
+        }
+
+        .logo-section {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .logo-section img {
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+        }
+
+        .logo-text {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--text-primary);
+        }
+
+        .nav-links {
+          display: flex;
+          gap: 1.5rem;
+          list-style: none;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-right: 80px;
+        }
+
+        .nav-links a {
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-weight: 500;
+          transition: var(--transition-fast);
+          padding: 0.5rem 0.8rem;
+          border-radius: 8px;
+          white-space: nowrap;
+          font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+          color: var(--primary);
+          background: var(--glass);
+        }
+
+        /* ===== DROPDOWN STYLES ===== */
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-toggle {
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-weight: 500;
+          transition: var(--transition-fast);
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .dropdown-toggle:hover {
+          color: var(--primary);
+          background: var(--glass);
+        }
+
+        .dropdown-toggle::after {
+          content: '▼';
+          font-size: 0.8rem;
+          transition: var(--transition-fast);
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+          transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: -200px;
+          background: var(--glass);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: var(--border-radius);
+          box-shadow: var(--shadow-strong);
+          padding: 1rem 0;
+          min-width: 250px;
+          max-width: 280px;
+          width: 280px;
+          z-index: 1000;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: var(--transition);
+          list-style: none;
+          margin: 0;
+          max-height: 60vh;
+          overflow-y: auto;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+          margin: 0;
+          padding: 0;
+        }
+
+        .dropdown-menu li a {
+          display: block;
+          padding: 0.75rem 1.5rem;
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: var(--transition-fast);
+          border-left: 3px solid transparent;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          line-height: 1.4;
+        }
+
+        .dropdown-menu li a:hover {
+          color: var(--primary);
+          background: var(--glass-strong);
+          border-left-color: var(--primary);
+          transform: translateX(5px);
+        }
+
+        /* ===== THEME TOGGLE BUTTON ===== */
+        .theme-toggle {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 9999;
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(20px);
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50px;
+          padding: 12px;
+          cursor: pointer;
+          transition: var(--transition);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+        }
+
+        .theme-toggle:hover {
+          transform: scale(1.1);
+          box-shadow: var(--shadow-strong);
+        }
+
+        .theme-toggle i {
+          font-size: 1.2rem;
+          color: var(--text-primary);
+          transition: var(--transition);
+        }
+
+        /* ===== LUXURY HERO SECTION ===== */
+        .luxury-hero {
+          position: relative;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          background: var(--bg-grad);
+          padding-top: 6rem;
+        }
+
+        .hero-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--bg-grad);
+          z-index: -2;
+        }
+
+        .hero-particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+        }
+
+        .hero-content {
+          text-align: center;
+          z-index: 1;
+          max-width: 1200px;
+          padding: 0 2rem;
+        }
+
+        .hero-title {
+          font-size: 4rem;
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EF4444 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          line-height: 1.2;
+        }
+
+        .hero-subtitle {
+          font-size: 1.5rem;
+          color: var(--text-secondary);
+          margin-bottom: 3rem;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        /* ===== LUXURY SECTIONS ===== */
+        .luxury-section {
+          padding: 6rem 0;
+          position: relative;
+        }
+
+        .container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+
+        .section-title {
+          text-align: center;
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 3rem;
+          background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .section-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          gap: 3rem;
+          margin-top: 4rem;
+        }
+
+        .section-card {
+          background: var(--glass);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: var(--border-radius);
+          padding: 3rem;
+          box-shadow: var(--shadow-soft);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .section-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .section-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-strong);
+        }
+
+        .section-card h3 {
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          color: var(--text-primary);
+        }
+
+        .section-card p {
+          color: var(--text-secondary);
+          line-height: 1.8;
+          margin-bottom: 1.5rem;
+        }
+
+        .section-image {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          border-radius: 12px;
+          margin-bottom: 2rem;
+        }
+
+        /* ===== LUXURY FOOTER ===== */
+        .luxury-footer {
+          background: linear-gradient(135deg, #0A0E1A 0%, #1A2332 100%);
+          padding: 4rem 0 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+
+        .footer-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 3rem;
+          margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+          color: var(--text-primary);
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+          color: var(--text-secondary);
+          text-decoration: none;
+          line-height: 1.8;
+          transition: var(--transition-fast);
+        }
+
+        .footer-section a:hover {
+          color: var(--primary);
+        }
+
+        .footer-bottom {
+          text-align: center;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          color: var(--text-muted);
+        }
+
+        /* ===== LIGHT MODE VARIABLES ===== */
+        :root.light-mode {
+          --primary: #2563EB;
+          --accent: #DC2626;
+          --bg-dark: #FAFAFA;
+          --bg-grad: linear-gradient(135deg, #FAFAFA 0%, #F1F5F9 50%, #E2E8F0 100%);
+          --glass: rgba(255, 255, 255, 0.8);
+          --glass-strong: rgba(255, 255, 255, 0.9);
+          --text-primary: #0F172A;
+          --text-secondary: #334155;
+          --text-muted: #64748B;
+          --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.12);
+          --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ===== LIGHT MODE SPECIFIC STYLES ===== */
+        :root.light-mode .luxury-header {
+          background: rgba(255, 255, 255, 0.95);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        :root.light-mode .section-card {
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        :root.light-mode .section-card:hover {
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+          transform: translateY(-5px);
+        }
+
+        :root.light-mode .theme-toggle {
+          background: rgba(255, 255, 255, 0.9);
+          border: 2px solid rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        :root.light-mode .luxury-footer {
+          background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        :root.light-mode .section-title {
+          background: linear-gradient(135deg, #0F172A 0%, #2563EB 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        :root.light-mode .hero-title {
+          background: linear-gradient(135deg, #0F172A 0%, #2563EB 50%, #DC2626 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .header-content {
+            padding: 1rem;
+            padding-right: 80px;
+          }
+          
+          .nav-links {
+            display: none;
+          }
+          
+          .mobile-menu-toggle {
+            display: block;
+          }
+          
+          .theme-toggle {
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            z-index: 1001;
+          }
+          
+          .luxury-hero {
+            padding: 2rem 1rem;
+          }
+          
+          .hero-title {
+            font-size: 2.5rem;
+          }
+          
+          .hero-subtitle {
+            font-size: 1.2rem;
+          }
+          
+          .section-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          
+          .section-card {
+            padding: 2rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .header-content {
+            padding-right: 70px;
+          }
+          
+          .theme-toggle {
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+          }
+          
+          .luxury-hero {
+            padding: 2rem 1rem;
+          }
+        }
+    </style>
+</head>
+<body>
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">
+  <i class="fas fa-moon" id="themeIcon"></i>
+</button>
+
+<!-- Luxury Header -->
+<header class="luxury-header">
+  <div class="header-content">
+    <div class="logo-section">
+      <img src="../static/images/meerim.png" alt="Meerim Visionary Training">
+      <span class="logo-text">Meerim Visionary Training</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/consulting">Consulting</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/upcoming_events">Events</a>
+      <a href="/courses">Mobius</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">Training Plan</a>
+        <ul class="dropdown-menu">
+          <li><a href="/2025_Training_Plan/1">Electrical & Power Engineering & Renewable Energy</a></li>
+          <li><a href="/2025_Training_Plan/2">MECHANICAL ENGINEERING & MAINTENANCE</a></li>
+          <li><a href="/2025_Training_Plan/3">INSTRUMENTATION & CONTROL ENGINEERING</a></li>
+          <li><a href="/2025_Training_Plan/4">Oil & Gas (Drilling, Reservoir, Petroleum & Geology)</a></li>
+          <li><a href="/2025_Training_Plan/5">Cement Manufacturing</a></li>
+          <li><a href="/2025_Training_Plan/6">Iron and Steel Manufacturing</a></li>
+          <li><a href="/2025_Training_Plan/7">Aluminium Manufacturing</a></li>
+          <li><a href="/2025_Training_Plan/8">Water & Waste Water Treatment and Chemistry Engineering</a></li>
+          <li><a href="/2025_Training_Plan/9">Information Technology (IT)</a></li>
+          <li><a href="/2025_Training_Plan/10">Health & Safety Management</a></li>
+          <li><a href="/2025_Training_Plan/11">Procurement & Supply Chain Management</a></li>
+          <li><a href="/2025_Training_Plan/12">Marine & Offshore Engineering</a></li>
+          <li><a href="/2025_Training_Plan/13">Project & Contract Management</a></li>
+          <li><a href="/2025_Training_Plan/14">HRM & Strategic Management C-Level Programs</a></li>
+          <li><a href="/2025_Training_Plan/15">Finance, Banking & Budgeting Management</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Luxury Hero Section -->
+<section class="luxury-hero">
+  <div class="hero-background"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">About Meerim Visionary Training</h1>
+    <p class="hero-subtitle">Empowering businesses and individuals with cutting-edge training solutions across diverse industries</p>
+  </div>
+</section>
+
+<!-- About Content Sections -->
+<section class="luxury-section">
+  <div class="container">
+    <h2 class="section-title">Our Story</h2>
+    <div class="section-grid">
+      <div class="section-card">
+        <h3>Our Mission</h3>
+        <p>At Meerim Visionary Training, we are dedicated to providing world-class professional development solutions that empower individuals and organizations to achieve their full potential. Our mission is to bridge the gap between theoretical knowledge and practical application through innovative training methodologies.</p>
+        <p>We believe that continuous learning is the key to success in today's rapidly evolving business landscape. Our comprehensive training programs are designed to equip professionals with the skills, knowledge, and confidence needed to excel in their respective fields.</p>
+      </div>
+      <div class="section-card">
+        <h3>Our Vision</h3>
+        <p>To be the leading provider of professional training solutions in the Middle East and beyond, recognized for our excellence in delivering transformative learning experiences that drive real-world results.</p>
+        <p>We envision a future where every professional has access to high-quality training that not only enhances their technical skills but also develops their leadership capabilities and strategic thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="luxury-section">
+  <div class="container">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="section-grid">
+      <div class="section-card">
+        <h3>Comprehensive Training Programs</h3>
+        <p>Our extensive portfolio covers 15 specialized training areas including Electrical & Power Engineering, Mechanical Engineering, Oil & Gas, Information Technology, and many more. Each program is carefully crafted to meet industry standards and current market demands.</p>
+        <p>We offer both in-person and online training options, ensuring flexibility and accessibility for all our participants regardless of their location or schedule constraints.</p>
+      </div>
+      <div class="section-card">
+        <h3>Expert Instructors</h3>
+        <p>Our team consists of industry veterans with decades of practical experience in their respective fields. They bring real-world insights and case studies to every training session, ensuring that participants gain not just theoretical knowledge but practical, applicable skills.</p>
+        <p>All our instructors are certified professionals who continuously update their knowledge to stay current with the latest industry trends and technologies.</p>
+      </div>
+      <div class="section-card">
+        <h3>Certification & Recognition</h3>
+        <p>Upon successful completion of our training programs, participants receive internationally recognized certificates that validate their newly acquired skills and knowledge. These certifications are highly valued by employers and can significantly enhance career prospects.</p>
+        <p>We maintain partnerships with leading certification bodies to ensure our programs meet the highest international standards.</p>
+      </div>
+      <div class="section-card">
+        <h3>Customized Solutions</h3>
+        <p>We understand that every organization has unique training needs. That's why we offer customized training solutions tailored to specific industry requirements, company culture, and learning objectives.</p>
+        <p>Our corporate training programs are designed to address specific challenges and opportunities within your organization, ensuring maximum return on investment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="luxury-section">
+  <div class="container">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="section-grid">
+      <div class="section-card">
+        <h3>Industry Expertise</h3>
+        <p>With years of experience across multiple industries, we understand the unique challenges and opportunities in each sector. Our training programs are designed with this deep industry knowledge, ensuring relevance and applicability.</p>
+      </div>
+      <div class="section-card">
+        <h3>Proven Track Record</h3>
+        <p>Thousands of professionals have successfully completed our training programs and have gone on to achieve significant career advancement. Our alumni network spans across the globe, creating valuable professional connections.</p>
+      </div>
+      <div class="section-card">
+        <h3>Modern Learning Methods</h3>
+        <p>We employ cutting-edge learning technologies and methodologies to ensure maximum engagement and knowledge retention. Our interactive sessions, hands-on workshops, and real-world case studies make learning both effective and enjoyable.</p>
+      </div>
+      <div class="section-card">
+        <h3>Ongoing Support</h3>
+        <p>Our relationship with participants doesn't end with the completion of training. We provide ongoing support, resources, and networking opportunities to help our alumni continue their professional development journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Luxury Footer -->
+<footer class="luxury-footer">
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <p>Email: info@meerimtraining.com</p>
+        <p>Phone: +966 XX XXX XXXX</p>
+        <p>Address: Riyadh, Saudi Arabia</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="/">Home</a></p>
+        <p><a href="/about">About Us</a></p>
+        <p><a href="/consulting">Consulting</a></p>
+        <p><a href="/gallery">Gallery</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Training Programs</h3>
+        <p><a href="/2025_Training_Plan/1">Electrical Engineering</a></p>
+        <p><a href="/2025_Training_Plan/2">Mechanical Engineering</a></p>
+        <p><a href="/2025_Training_Plan/3">Control Engineering</a></p>
+        <p><a href="/courses">All Programs</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Meerim Visionary Training. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="../static/styles/bootstrap4/popper.js"></script>
+<script src="../static/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../static/plugins/greensock/TweenMax.min.js"></script>
+<script src="../static/plugins/greensock/TimelineMax.min.js"></script>
+<script src="../static/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="../static/plugins/greensock/animation.gsap.min.js"></script>
+<script src="../static/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="../static/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../static/plugins/scrollTo/jquery.scrollTo.min.js"></script>
+<script src="../static/plugins/easing/easing.js"></script>
+<script src="../static/js/custom.js"></script>
+
+<script>
+// Particle System
+function createParticles() {
+  const particlesContainer = document.getElementById('particles');
+  const particleCount = 50;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = Math.random() * 4 + 2 + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.background = `hsl(${Math.random() * 60 + 200}, 70%, 60%)`;
+    particle.style.borderRadius = '50%';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.opacity = Math.random() * 0.8 + 0.2;
+    particle.style.animation = `float ${Math.random() * 20 + 10}s infinite linear`;
+    particle.style.animationDelay = Math.random() * 20 + 's';
+    
+    particlesContainer.appendChild(particle);
+  }
+}
+
+// Theme Toggle Functionality
+function initThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const root = document.documentElement;
+  
+  // Check for saved theme preference or default to dark mode
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  
+  // Apply the saved theme
+  if (currentTheme === 'light') {
+    root.classList.add('light-mode');
+    themeIcon.className = 'fas fa-sun';
+  } else {
+    root.classList.remove('light-mode');
+    themeIcon.className = 'fas fa-moon';
+  }
+  
+  // Theme toggle event listener
+  themeToggle.addEventListener('click', function() {
+    if (root.classList.contains('light-mode')) {
+      // Switch to dark mode
+      root.classList.remove('light-mode');
+      themeIcon.className = 'fas fa-moon';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      // Switch to light mode
+      root.classList.add('light-mode');
+      themeIcon.className = 'fas fa-sun';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
+
+// Dropdown Click Functionality
+function initDropdownClick() {
+  const dropdown = document.querySelector('.dropdown');
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  
+  if (dropdown && dropdownToggle) {
+    dropdownToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle('active');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  }
+}
+
+// Initialize particles when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  createParticles();
+  initThemeToggle();
+  initDropdownClick();
+});
+</script>
+
+<style>
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+</style>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

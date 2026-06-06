@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Meerim Visionary Training - Excellence in Professional Development</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Premier training and consultancy firm specializing in professional development across diverse industries">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/styles/bootstrap4/bootstrap.min.css">
+<link href="../static/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="../static/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="../static/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="../static/styles/luxury.css">
+	<!-- Font Awesome CDN (version 6) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ===== LUXURY DESIGN SYSTEM ===== */
+:root {
+  --primary: #52C4DC;
+  --accent: #C9A24A;
+  --bg-dark: #0A0E1A;
+  --bg-grad: linear-gradient(135deg, #0A0E1A 0%, #1A2332 50%, #0F1419 100%);
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-strong: rgba(255, 255, 255, 0.1);
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8C5D1;
+  --text-muted: #7A8B99;
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --border-radius: 16px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-grad);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== LUXURY HERO SECTION ===== */
+.luxury-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg-grad);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0A0E1A 0%, #1A2332 50%, #0F1419 100%);
+  z-index: 1;
+}
+
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.particle:nth-child(2n) {
+  background: var(--accent);
+  animation-delay: -2s;
+  animation-duration: 8s;
+}
+
+.particle:nth-child(3n) {
+  background: #FFFFFF;
+  animation-delay: -4s;
+  animation-duration: 10s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { filter: drop-shadow(0 0 20px rgba(82, 196, 220, 0.3)); }
+  100% { filter: drop-shadow(0 0 40px rgba(201, 162, 74, 0.5)); }
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.luxury-btn {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.luxury-btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #3FB0C4 100%);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-soft);
+}
+
+.luxury-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.luxury-btn-secondary {
+  background: var(--glass);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.luxury-btn-secondary:hover {
+  background: var(--glass-strong);
+  transform: translateY(-3px);
+}
+
+/* ===== 3D FLOATING CARDS ===== */
+.floating-cards {
+  position: relative;
+  margin: 6rem 0;
+  perspective: 1000px;
+}
+
+.card-3d {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin: 1rem;
+  transition: var(--transition);
+  transform-style: preserve-3d;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ===== LUXURY SLIDER ===== */
+.luxury-slider {
+  position: relative;
+  margin: 4rem 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-track {
+  display: flex;
+  animation: slideLuxury 20s linear infinite;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.slider-item {
+  flex: 0 0 300px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition);
+}
+
+.slider-item:hover {
+  transform: scale(1.05);
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.slider-item:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes slideLuxury {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== LUXURY SECTIONS ===== */
+.luxury-section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.luxury-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: var(--transition);
+}
+
+.luxury-card:hover::before {
+  left: 100%;
+}
+
+.luxury-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .luxury-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .luxury-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .slider-item {
+    flex: 0 0 250px;
+    height: 150px;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* ===== EXISTING STYLES OVERRIDE ===== */
+.btn {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 24px;
+  transition: var(--transition-fast);
+}
+
+.btn.default {
+  background: linear-gradient(135deg, var(--primary) 0%, #3FB0C4 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn.default:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.files-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.file-card {
+  width: 280px;
+  text-align: center;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-soft);
+}
+
+.file-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-strong);
+}
+
+.cover-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.file-name {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, #3FB0C4 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===== LUXURY HEADER ===== */
+.luxury-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 14, 26, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-section img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+  background: var(--glass);
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .luxury-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .luxury-section {
+    padding: 3rem 1rem;
+  }
+}
+</style>
+
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<button class="btn default" style="margin-left: 10px;" onclick="window.location.href='/register'">Register</button>
+
+<button class="btn default" style="margin-left: 5px;" onclick="window.location.href='/login'">Log In</button>
+
+<br>
+<br>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header d-flex flex-row">
+    <div class="header_content d-flex flex-row align-items-center">
+        <!-- Logo -->
+        <div class="logo_container">
+            <div class="logo">
+                <img src="../static/images/meerim.png" alt="" style="width: 90px; height: auto;">
+                <span style="font-size: 14px;">Meerim Visionary Training</span>
+            </div>
+        </div>
+        <!-- Main Navigation -->
+        <nav class="main_nav_container">
+            <div class="main_nav">
+                <ul class="main_nav_list">
+                    <li class="main_nav_item"><a href="/">home</a></li>
+                    <li class="main_nav_item"><a href="/about">about us</a></li>
+                    <li class="main_nav_item"><a href="/consulting">consulting</a></li>
+                    <li class="main_nav_item"><a href="/gallery">gallery</a></li>
+                    <li class="main_nav_item"><a href="/upcoming_events">upcoming events</a></li>
+					<li class="main_nav_item"><a href="/courses">Mobius</a></li>
+                    <li class="main_nav_item dropdown">
+                        <a href="#" class="dropdown-toggle">Training Plan</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/2025_Training_Plan/1">Electrical & Power Engineering & Renewable Energy</a></li>
+                            <li><a href="/2025_Training_Plan/2">MECHANICAL ENGINEERING & MAINTENANCE</a></li>
+                            <li><a href="/2025_Training_Plan/3">INSTRUMENTATION & CONTROL ENGINEERING</a></li>
+                            <li><a href="/2025_Training_Plan/4">Oil & Gas (Drilling, Reservoir, Petroleum & Geology)</a></li>
+                            <li><a href="/2025_Training_Plan/5">Cement Manufacturing</a></li>
+                            <li><a href="/2025_Training_Plan/6">Iron and Steel Manufacturing</a></li>
+                            <li><a href="/2025_Training_Plan/7">Aluminium Manufacturing</a></li>
+                            <li><a href="/2025_Training_Plan/8">Water & Waste Water Treatment and Chemistry Engineering</a></li>
+                            <li><a href="/2025_Training_Plan/9">Information Technology (IT)</a></li>
+                            <li><a href="/2025_Training_Plan/10">Health & Safety Management</a></li>
+                            <li><a href="/2025_Training_Plan/11">Procurement & Supply Chain Management</a></li>
+                            <li><a href="/2025_Training_Plan/12">Marine & Offshore Engineering</a></li>
+                            <li><a href="/2025_Training_Plan/13">Project & Contract Management</a></li>
+                            <li><a href="/2025_Training_Plan/14">HRM & Strategic Management C-Level Programs</a></li>
+                            <li><a href="/2025_Training_Plan/15">Finance, Banking & Budgeting Management</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="header_side d-flex flex-row justify-content-center align-items-center">
+        <img src="../static/images/phone-call.svg" alt="">
+        <span>+971 50 652 5978</span>
+    </div>
+    <!-- Hamburger -->
+    <div class="hamburger_container">
+        <i class="fas fa-bars trans_200"></i>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="menu_container menu_mm">
+    <!-- Menu Close Button -->
+    <div class="menu_close_container">
+        <div class="menu_close"></div>
+    </div>
+
+    <!-- Mobile Menu Items -->
+    <div class="menu_inner menu_mm">
+        <div class="menu menu_mm">
+            <ul class="menu_list menu_mm">
+                <li class="menu_item menu_mm"><a href="/">Home</a></li>
+                <li class="menu_item menu_mm"><a href="/about">About Us</a></li>
+                <li class="menu_item menu_mm"><a href="/consulting">Consulting</a></li>
+                <li class="menu_item menu_mm"><a href="/gallery">Gallery</a></li>
+                <li class="menu_item menu_mm"><a href="/upcoming_events">Upcoming Events</a></li>
+				<li class="menu_item menu_mm"><a href="/courses">Mobius</a></li>
+                <li class="menu_item menu_mm dropdown">
+                    <a href="#" class="dropdown-toggle menu_mm">Training Plan</a>
+                    <ul class="dropdown-menu menu_mm">
+                        <li><a href="/2025_Training_Plan/1">Electrical & Power Engineering & Renewable Energy</a></li>
+                        <li><a href="/2025_Training_Plan/2">MECHANICAL ENGINEERING & MAINTENANCE</a></li>
+                        <li><a href="/2025_Training_Plan/3">INSTRUMENTATION & CONTROL ENGINEERING</a></li>
+                        <li><a href="/2025_Training_Plan/4">Oil & Gas (Drilling, Reservoir, Petroleum & Geology)</a></li>
+                        <li><a href="/2025_Training_Plan/5">Cement Manufacturing</a></li>
+                        <li><a href="/2025_Training_Plan/6">Iron and Steel Manufacturing</a></li>
+                        <li><a href="/2025_Training_Plan/7">Aluminium Manufacturing</a></li>
+                        <li><a href="/2025_Training_Plan/8">Water & Waste Water Treatment and Chemistry Engineering</a></li>
+                        <li><a href="/2025_Training_Plan/9">Information Technology (IT)</a></li>
+                        <li><a href="/2025_Training_Plan/10">Health & Safety Management</a></li>
+                        <li><a href="/2025_Training_Plan/11">Procurement & Supply Chain Management</a></li>
+                        <li><a href="/2025_Training_Plan/12">Marine & Offshore Engineering</a></li>
+                        <li><a href="/2025_Training_Plan/13">Project & Contract Management</a></li>
+                        <li><a href="/2025_Training_Plan/14">HRM & Strategic Management C-Level Programs</a></li>
+                        <li><a href="/2025_Training_Plan/15">Finance, Banking & Budgeting Management</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Contact Info -->
+<!--        <div class="menu_contact menu_mm">-->
+<!--            <img src="../static/images/phone-call.svg" alt="">-->
+<!--            <span>+971 50 6525 976</span>-->
+<!--        </div>-->
+
+        <!-- Mobile Social Media Links -->
+        <div class="menu_social_container menu_mm">
+            <ul class="menu_social menu_mm">
+                <li class="menu_social_item menu_mm"><a href="https://www.tiktok.com/@meerim.visionary?_t=ZS-8w7fHPEfpGi&_r=1"><i class="fab fa-tiktok"></i></a></li>
+                <li class="menu_social_item menu_mm"><a href="https://www.instagram.com/meerimvisionary?igsh=MWs2dDdiZG1zZ2Jibg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a></li>
+                <li class="menu_social_item menu_mm"><a href="https://www.facebook.com/share/1EYx37u7W8/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="menu_social_item menu_mm"><a href="https://x.com/meerimtraining?s=11"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+	<!-- Home -->
+
+<!--	<div class="home">-->
+
+<!--		&lt;!&ndash; Hero Slider &ndash;&gt;-->
+<!--		<div class="hero_slider_container">-->
+<!--    <div class="hero_slider owl-carousel">-->
+
+<!--        &lt;!&ndash; Hero Slide &ndash;&gt;-->
+<!--        <div class="hero_slide">-->
+<!--            <div class="hero_slide_background" style="background-image:url('../static/images/powerplant.png')"></div>-->
+<!--            <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">-->
+<!--                <div class="hero_slide_content text-center">-->
+<!--                    <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">MEERIM VISIONARY TRAINING</h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Hero Slide &ndash;&gt;-->
+<!--        <div class="hero_slide">-->
+<!--            <div class="hero_slide_background" style="background-image:url('../static/images/petroluem3.jpg')"></div>-->
+<!--            <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">-->
+<!--                <div class="hero_slide_content text-center">-->
+<!--                    <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Inspiring Ambition And Success</h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+
+<!--	</div>-->
+
+<!--	<div class="hero_boxes">-->
+<!--		<div class="hero_boxes_inner">-->
+<!--			<div class="container">-->
+<!--				<div class="row">-->
+
+<!--					<div class="col-lg-4 hero_box_col">-->
+<!--						<div class="hero_box d-flex flex-row align-items-center justify-content-start">-->
+<!--							<img src="../static/images/earth-globe.svg" class="svg" alt="">-->
+<!--							<div class="hero_box_content">-->
+<!--								<h2 class="hero_box_title">Online Courses</h2>-->
+<!--								<a href="courses.html" class="hero_box_link">view more</a>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--					<div class="col-lg-4 hero_box_col">-->
+<!--						<div class="hero_box d-flex flex-row align-items-center justify-content-start">-->
+<!--							<img src="../static/images/books.svg" class="svg" alt="">-->
+<!--							<div class="hero_box_content">-->
+<!--								<h2 class="hero_box_title">Our Library</h2>-->
+<!--								<a href="courses.html" class="hero_box_link">view more</a>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--					<div class="col-lg-4 hero_box_col">-->
+<!--						<div class="hero_box d-flex flex-row align-items-center justify-content-start">-->
+<!--							<img src="../static/images/professor.svg" class="svg" alt="">-->
+<!--							<div class="hero_box_content">-->
+<!--								<h2 class="hero_box_title">Our Teachers</h2>-->
+<!--								<a href="teachers.html" class="hero_box_link">view more</a>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+	<br>
+	<br>
+
+	<div class="slider-container">
+  <div class="slider">
+    <img src="../static/images/Picture1.png" class="slider-img">
+    <img src="../static/images/Picture2.png" class="slider-img">
+    <img src="../static/images/Picture3.png" class="slider-img">
+    <img src="../static/images/Picture4.png" class="slider-img">
+    <img src="../static/images/Picture5.png" class="slider-img">
+	  <img src="../static/images/Picture1.png" class="slider-img">
+	  <img src="../static/images/Picture2.png" class="slider-img">
+  </div>
+</div>
+
+	<br>
+<div class="testimonials page_section">
+		<!-- <div class="testimonials_background" style="background-image:url(../static/images/testimonials_background.jpg)"></div> -->
+		<div class="testimonials_background_container prlx_parent">
+			<div class="testimonials_background prlx" style="background-image:url(https://www.univariety.com/blog/wp-content/uploads/2016/03/engineering-study.jpg)"></div>
+		</div>
+		<div class="container">
+
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Introduction</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+
+					<div class="testimonials_slider_container">
+
+						<!-- Testimonials Slider -->
+						<div class="owl-carousel owl-theme testimonials_slider">
+
+							<!-- Testimonials Item -->
+							<div class="owl-item">
+								<div class="testimonials_item text-center">
+									<div class="quote">“</div>
+									<p class="testimonials_text" style="text-align: justify;">Welcome to MEERIM VISIONARY TRAINING a premier training and consultancy firm based in the heart of Dubai. As a proud member of Merim Engineering Consulting Group a distinguished group of companies specializing in training and consultancy across diverse industries, we are dedicated to empowering businesses and individuals with the knowledge, skills, and strategies needed to thrive in today’s dynamic world.</p>
+									<br>
+									<p class="testimonials_text" style="text-align: justify;">At MEERIM VISIONARY TRAINING, we understand that success in the modern business landscape requires more than just expertise—it demands continuous growth, strategic thinking, and adaptive solutions. Our comprehensive training programs are meticulously designed to address the evolving needs of industries ranging from finance and management to technical skills and leadership development.</p>
+									<br>
+									<p class="testimonials_text" style="text-align: justify;">What sets us apart is our unwavering commitment to quality and innovation. We leverage the vast expertise of our group network, blending international best practices with local insights to deliver impactful training experiences. Our team of seasoned trainers and consultants brings real-world experience and cutting-edge knowledge to every session, ensuring practical and results-driven learning.</p>
+									<br>
+									<p class="testimonials_text" style="text-align: justify;">Whether you are looking to enhance your team’s skills, develop leadership potential, or implement transformative strategies, MEERIM VISIONARY TRAINING is your trusted partner on the path to excellence. Join us as we shape the future of your business with tailored solutions and insightful consultancy.</p>
+									<br>
+									<p class="testimonials_text" style="text-align: justify;">Discover the difference with MEERIM VISIONARY TRAINING where learning meets leadership.</p>
+<!--									<div class="testimonial_user">-->
+<!--										<div class="testimonial_image mx-auto">-->
+<!--											<img src="../static/images/testimonials_user.jpg" alt="">-->
+										</div>
+<!--										<div class="testimonial_name">james cooper</div>-->
+<!--										<div class="testimonial_title">Graduate Student</div>-->
+<!--									</div>-->
+								</div>
+							</div>
+
+							<!-- Testimonials Item -->
+<!--							<div class="owl-item">-->
+<!--								<div class="testimonials_item text-center">-->
+<!--									<div class="quote">“</div>-->
+<!--									<p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--									<div class="testimonial_user">-->
+<!--										<div class="testimonial_image mx-auto">-->
+<!--											<img src="../static/images/testimonials_user.jpg" alt="">-->
+<!--										</div>-->
+<!--										<div class="testimonial_name">james cooper</div>-->
+<!--										<div class="testimonial_title">Graduate Student</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+							<!-- Testimonials Item -->
+<!--							<div class="owl-item">-->
+<!--								<div class="testimonials_item text-center">-->
+<!--									<div class="quote">“</div>-->
+<!--									<p class="testimonials_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--									<div class="testimonial_user">-->
+<!--										<div class="testimonial_image mx-auto">-->
+<!--											<img src="../static/images/testimonials_user.jpg" alt="">-->
+<!--										</div>-->
+<!--										<div class="testimonial_name">james cooper</div>-->
+<!--										<div class="testimonial_title">Graduate Student</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Popular -->
+<br>
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="../static/images/meerim 1.jpeg" style="width: 200px; height: auto; border-radius: 10px;">
+  <img src="../static/images/meerim 2.jpeg" style="width: 200px; height: auto; border-radius: 10px;">
+</div>
+
+<section style="text-align: center; padding: 40px 0;">
+  <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+    <img src="../static/images/ISO1.png" alt="Image 1" style="width: 280px; height: auto; border-radius: 8px;">
+    <img src="../static/images/ISO2.png" alt="Image 2" style="width: 280px; height: auto; border-radius: 8px;">
+    <img src="../static/images/ISO3.png" alt="Image 3" style="width: 280px; height: auto; border-radius: 8px;">
+	  <img src="../static/images/meerim 3.png" alt="Image 3" style="width: 280px; height: auto; border-radius: 8px;">
+  </div>
+</section>
+
+	<div class="popular page_section">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Our Trainings</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+				
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/electric.jpeg" alt="https://unsplash.com/@kellybrito">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/1">Electrical & Power Engineering & Renewable Energy </a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/mechanical.jpg" alt="https://unsplash.com/@cikstefan">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/2">MECHANICAL ENGINEERING & MAINTENANCE</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/control.jpg" alt="https://unsplash.com/@dsmacinnes">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/3">INSTRUMENTATION & CONTROL ENGINEERING</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/oil.webp" alt="https://unsplash.com/@kellybrito">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/4">Oil & Gas (Drilling, Reservoir, Petroleum & Geology)</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/cement.webp" alt="https://unsplash.com/@cikstefan">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/5">Cement Manufacturing</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/iron.jpg" alt="https://unsplash.com/@dsmacinnes">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/6">Iron and Steel Manufacturing</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/aluminium.jpg" alt="https://unsplash.com/@kellybrito">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/7">Aluminium Manufacturing</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/water.jpg" alt="https://unsplash.com/@cikstefan">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/8">Water & Waste Water Treatment and Chemistry Engineering</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/it.jpg" alt="https://unsplash.com/@dsmacinnes">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/9">Information Technology (IT)</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/safety.jpg" alt="https://unsplash.com/@kellybrito">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/10">Health & Safety Management</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/supply.webp" alt="https://unsplash.com/@cikstefan">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/11">Procurement & Supply Chain Management</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/marine.png" alt="https://unsplash.com/@dsmacinnes">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/12">Marine & Offshore Engineering</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/project.jpg" alt="https://unsplash.com/@kellybrito">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/13">Project & Contract Management</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/course_2.jpg" alt="https://unsplash.com/@cikstefan">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/14">HRM & Strategic Management C-Level Programs</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card1">
+						<img class="card-img-top" src="../static/images/bank.jpeg" alt="https://unsplash.com/@dsmacinnes">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="/2025_Training_Plan/15">Finance, Banking & Budgeting Management</a></div>
+							<div class="card-text"></div>
+						</div>
+						<div class="price_box d-flex flex-row align-items-center">
+							<div class="course_author_image">
+<!--								<img src="../static/images/author.jpg" alt="https://unsplash.com/@mehdizadeh">-->
+							</div>
+<!--							<div class="course_author_name">Michael Smith, <span>Author</span></div>-->
+<!--							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>		
+	</div>
+
+
+
+<div class="files-container">
+        {% for file in files %}
+            <div class="file-card">
+                <img src="{{ url_for('static', filename='uploads/' + (file.cover_image_filename or 'default_thumbnail.png')) }}"
+                     alt="Cover Image" class="cover-image">
+                <span class="file-name">{{ file.filename.rsplit('.', 1)[0] }}</span>
+                <a href="{{ url_for('static', filename='uploads/' + file.filename) }}"
+                   target="_blank" class="download-button">View / Download</a>
+            </div>
+        {% endfor %}
+    </div>
+<br>
+<br>
+
+	<!-- Register -->
+
+<!--	<div class="register">-->
+
+<!--		<div class="container-fluid">-->
+<!--			-->
+<!--			<div class="row row-eq-height">-->
+<!--				<div class="col-lg-6 nopadding">-->
+<!--					-->
+<!--					&lt;!&ndash; Register &ndash;&gt;-->
+
+<!--					<div class="register_section d-flex flex-column align-items-center justify-content-center">-->
+<!--						<div class="register_content text-center">-->
+<!--							<h1 class="register_title">Register now and get a discount <span>50%</span> discount until 1 January</h1>-->
+<!--							<p class="register_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempo.</p>-->
+<!--							<div class="button button_1 register_button mx-auto trans_200"><a href="#">register now</a></div>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--				</div>-->
+
+<!--				<div class="col-lg-6 nopadding">-->
+<!--					-->
+<!--					&lt;!&ndash; Search &ndash;&gt;-->
+
+<!--					<div class="search_section d-flex flex-column align-items-center justify-content-center">-->
+<!--						<div class="search_background" style="background-image:url(../static/images/search_background.jpg);"></div>-->
+<!--						<div class="search_content text-center">-->
+<!--							<h1 class="search_title">Search for your course</h1>-->
+<!--							<form id="search_form" class="search_form" action="post">-->
+<!--								<input id="search_form_name" class="input_field search_form_name" type="text" placeholder="Course Name" required="required" data-error="Course name is required.">-->
+<!--								<input id="search_form_category" class="input_field search_form_category" type="text" placeholder="Category">-->
+<!--								<input id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="Degree">-->
+<!--								<button id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit">search course</button>-->
+<!--							</form>-->
+<!--						</div> -->
+<!--					</div>-->
+
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+	<!-- Services -->
+
+<!--	<div class="services page_section">-->
+<!--		-->
+<!--		<div class="container">-->
+<!--			<div class="row">-->
+<!--				<div class="col">-->
+<!--					<div class="section_title text-center">-->
+<!--						<h1>Our Services</h1>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+
+<!--			<div class="row services_row">-->
+
+<!--				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">-->
+<!--					<div class="icon_container d-flex flex-column justify-content-end">-->
+<!--						<img src="../static/images/earth-globe.svg" alt="">-->
+<!--					</div>-->
+<!--					<h3>Online Courses</h3>-->
+<!--					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--				</div>-->
+
+<!--				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">-->
+<!--					<div class="icon_container d-flex flex-column justify-content-end">-->
+<!--						<img src="../static/images/exam.svg" alt="">-->
+<!--					</div>-->
+<!--					<h3>Indoor Courses</h3>-->
+<!--					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--				</div>-->
+
+<!--				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">-->
+<!--					<div class="icon_container d-flex flex-column justify-content-end">-->
+<!--						<img src="../static/images/books.svg" alt="">-->
+<!--					</div>-->
+<!--					<h3>Amazing Library</h3>-->
+<!--					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--				</div>-->
+
+<!--				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">-->
+<!--					<div class="icon_container d-flex flex-column justify-content-end">-->
+<!--						<img src="../static/images/professor.svg" alt="">-->
+<!--					</div>-->
+<!--					<h3>Exceptional Professors</h3>-->
+<!--					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--				</div>-->
+
+<!--				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">-->
+<!--					<div class="icon_container d-flex flex-column justify-content-end">-->
+<!--						<img src="../static/images/blackboard.svg" alt="">-->
+<!--					</div>-->
+<!--					<h3>Top Programs</h3>-->
+<!--					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--				</div>-->
+
+<!--				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">-->
+<!--					<div class="icon_container d-flex flex-column justify-content-end">-->
+<!--						<img src="../static/images/mortarboard.svg" alt="">-->
+<!--					</div>-->
+<!--					<h3>Graduate Diploma</h3>-->
+<!--					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>-->
+<!--				</div>-->
+
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+	<!-- Testimonials -->
+
+
+
+	<!-- Events -->
+
+<!--	<div class="events page_section">-->
+<!--		<div class="container">-->
+<!--			-->
+<!--			<div class="row">-->
+<!--				<div class="col">-->
+<!--					<div class="section_title text-center">-->
+<!--						<h1>Upcoming Events</h1>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			-->
+<!--			<div class="event_items">-->
+
+<!--				&lt;!&ndash; Event Item &ndash;&gt;-->
+<!--				<div class="row event_item">-->
+<!--					<div class="col">-->
+<!--						<div class="row d-flex flex-row align-items-end">-->
+
+<!--							<div class="col-lg-2 order-lg-1 order-2">-->
+<!--								<div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--									<div class="event_day">07</div>-->
+<!--									<div class="event_month">January</div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<div class="col-lg-6 order-lg-2 order-3">-->
+<!--								<div class="event_content">-->
+<!--									<div class="event_name"><a class="trans_200" href="#">Student Festival</a></div>-->
+<!--									<div class="event_location">Grand Central Park</div>-->
+<!--									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<div class="col-lg-4 order-lg-3 order-1">-->
+<!--								<div class="event_image">-->
+<!--									<img src="../static/images/event_1.jpg" alt="https://unsplash.com/@theunsteady5">-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--						</div>	-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Event Item &ndash;&gt;-->
+<!--				<div class="row event_item">-->
+<!--					<div class="col">-->
+<!--						<div class="row d-flex flex-row align-items-end">-->
+
+<!--							<div class="col-lg-2 order-lg-1 order-2">-->
+<!--								<div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--									<div class="event_day">07</div>-->
+<!--									<div class="event_month">January</div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<div class="col-lg-6 order-lg-2 order-3">-->
+<!--								<div class="event_content">-->
+<!--									<div class="event_name"><a class="trans_200" href="#">Open day in the Univesrsity campus</a></div>-->
+<!--									<div class="event_location">Grand Central Park</div>-->
+<!--									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<div class="col-lg-4 order-lg-3 order-1">-->
+<!--								<div class="event_image">-->
+<!--									<img src="../static/images/event_2.jpg" alt="https://unsplash.com/@claybanks1989">-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--						</div>	-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Event Item &ndash;&gt;-->
+<!--				<div class="row event_item">-->
+<!--					<div class="col">-->
+<!--						<div class="row d-flex flex-row align-items-end">-->
+
+<!--							<div class="col-lg-2 order-lg-1 order-2">-->
+<!--								<div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--									<div class="event_day">07</div>-->
+<!--									<div class="event_month">January</div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<div class="col-lg-6 order-lg-2 order-3">-->
+<!--								<div class="event_content">-->
+<!--									<div class="event_name"><a class="trans_200" href="#">Student Graduation Ceremony</a></div>-->
+<!--									<div class="event_location">Grand Central Park</div>-->
+<!--									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<div class="col-lg-4 order-lg-3 order-1">-->
+<!--								<div class="event_image">-->
+<!--									<img src="../static/images/event_3.jpg" alt="https://unsplash.com/@juanmramosjr">-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--						</div>	-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--			</div>-->
+<!--				-->
+<!--		</div>-->
+<!--	</div>-->
+
+<a href="https://wa.me/971506525978" class="whatsapp_float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp Icon">
+</a>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			
+			<!-- Newsletter -->
+
+<!--			<div class="newsletter">-->
+<!--				<div class="row">-->
+<!--					<div class="col">-->
+<!--						<div class="section_title text-center">-->
+<!--							<h1>Subscribe to newsletter</h1>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				<div class="row">-->
+<!--					<div class="col text-center">-->
+<!--						<div class="newsletter_form_container mx-auto">-->
+<!--							<form action="post">-->
+<!--								<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">-->
+<!--									<input id="newsletter_email" class="newsletter_email" type="email" placeholder="Email Address" required="required" data-error="Valid email is required.">-->
+<!--									<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">Subscribe</button>-->
+<!--								</div>-->
+<!--							</form>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--			</div>-->
+
+			<!-- Footer Content -->
+
+			<div class="footer_content">
+				<div class="row">
+
+					<!-- Footer Column - About -->
+					<div class="col-lg-3 footer_col">
+
+						<!-- Logo -->
+						<div class="logo_container">
+							<div class="logo">
+								<img src="../static/images/meerim.png" alt="">
+								<span>M-V-T</span>
+							</div>
+						</div>
+
+						<p class="footer_about_text">Inspiring Ambition And Success.</p>
+
+					</div>
+
+					<!-- Footer Column - Menu -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Menu</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_list_item"><a href="/">Home</a></li>
+								<li class="footer_list_item"><a href="/about">About Us</a></li>
+								<li class="footer_list_item"><a href="/consulting">Consulting</a></li>
+								<li class="footer_list_item"><a href="/gallery">Gallery</a></li>
+								<li class="footer_list_item"><a href="/upcoming_events">Upcoming Events</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Footer Column - Usefull Links -->
+
+<!--					<div class="col-lg-3 footer_col">-->
+<!--						<div class="footer_column_title">Usefull Links</div>-->
+<!--						<div class="footer_column_content">-->
+<!--							<ul>-->
+<!--								<li class="footer_list_item"><a href="#">Testimonials</a></li>-->
+<!--								<li class="footer_list_item"><a href="#">FAQ</a></li>-->
+<!--								<li class="footer_list_item"><a href="#">Community</a></li>-->
+<!--								<li class="footer_list_item"><a href="#">Campus Pictures</a></li>-->
+<!--								<li class="footer_list_item"><a href="#">Tuitions</a></li>-->
+<!--							</ul>-->
+<!--						</div>-->
+<!--					</div>-->
+
+					<!-- Footer Column - Contact -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Contact</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="../static/images/placeholder.svg" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>
+									Rolex Tower, Sheikh Zayed Road, Dubai, UAE
+								</li>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="../static/images/smartphone.svg" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>
+									+971 50 652 5978
+								</li>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="../static/images/envelope.svg" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>info@mvtuae.com
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Footer Copyright -->
+
+			<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+				<div class="footer_copyright">
+					<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by <a href="https://www.linkedin.com/in/omar-islam-a91023317/" target="_blank">OMAR ISLAM</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+				</div>
+				<div class="footer_social ml-sm-auto">
+					<ul class="menu_social">
+						<li class="menu_social_item menu_mm"><a href="https://www.tiktok.com/@meerim.visionary?_t=ZS-8w7fHPEfpGi&_r=1"><i class="fab fa-tiktok"></i></a></li>
+                <li class="menu_social_item menu_mm"><a href="https://www.instagram.com/meerimvisionary?igsh=MWs2dDdiZG1zZ2Jibg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a></li>
+                <li class="menu_social_item menu_mm"><a href="https://www.facebook.com/share/1EYx37u7W8/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="menu_social_item menu_mm"><a href="https://x.com/meerimtraining?s=11"><i class="fab fa-twitter"></i></a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+</div>
+
+<script src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="../static/styles/bootstrap4/popper.js"></script>
+<script src="../static/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../static/plugins/greensock/TweenMax.min.js"></script>
+<script src="../static/plugins/greensock/TimelineMax.min.js"></script>
+<script src="../static/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="../static/plugins/greensock/animation.gsap.min.js"></script>
+<script src="../static/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="../static/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../static/plugins/scrollTo/jquery.scrollTo.min.js"></script>
+<script src="../static/plugins/easing/easing.js"></script>
+<script src="../static/js/custom.js"></script>
+
+<script>
+$(".hero_slider").owlCarousel({
+    items: 1,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 7000,
+    smartSpeed: 1000,
+    dots: false,
+    nav: false,
+    animateIn: '',       // disable owl's default
+    animateOut: ''
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+        let toggle = dropdown.querySelector(".dropdown-toggle");
+        let menu = dropdown.querySelector(".dropdown-menu");
+
+        toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Close all other open dropdowns
+            document.querySelectorAll(".dropdown-menu").forEach(m => {
+                if (m !== menu) {
+                    m.style.display = "none";
+                }
+            });
+
+            // Toggle the clicked dropdown
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+                menu.style.position = "absolute"; // Ensure it stays on top
+                menu.style.transform = "translateY(0)"; // Prevents being cut off
+            }
+        });
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener("click", function (e) {
+        if (!e.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                menu.style.display = "none";
+            });
+        }
+    });
+});
+
+
+
+
+</script>
+
+</body>
+</html>

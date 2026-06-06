@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+  <style>
+  /* Basic Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+  }
+
+  /* Form Styling */
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  div {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-size: 16px;
+    color: #555;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
+  }
+
+  textarea:focus {
+    border-color: #28a745;
+    outline: none;
+  }
+
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #28a745; /* Green Color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #218838; /* Darker Green */
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  /* HR Styling */
+  hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 20px;
+    }
+
+    form {
+      padding: 15px;
+    }
+
+    textarea {
+      font-size: 14px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<h2>{{ test.title }} ({{ test.test_type }})</h2>
+
+<form method="POST">
+  <input type="hidden" name="test_id" value="{{ test.id }}">
+
+  {% for q in questions %}
+    <div>
+      <p><strong>Q{{ loop.index }}:</strong> {{ q.question_text }}</p>
+
+      {% if test.test_type == 'multiple_choice' %}
+        <label><input type="radio" name="question_{{ q.id }}" value="{{ q.choice1 }}"> {{ q.choice1 }}</label><br>
+        <label><input type="radio" name="question_{{ q.id }}" value="{{ q.choice2 }}"> {{ q.choice2 }}</label><br>
+        <label><input type="radio" name="question_{{ q.id }}" value="{{ q.choice3 }}"> {{ q.choice3 }}</label><br>
+        <label><input type="radio" name="question_{{ q.id }}" value="{{ q.choice4 }}"> {{ q.choice4 }}</label><br>
+
+      {% elif test.test_type == 'true_false' %}
+        <label><input type="radio" name="question_{{ q.id }}" value="True"> True</label><br>
+        <label><input type="radio" name="question_{{ q.id }}" value="False"> False</label><br>
+
+      {% elif test.test_type == 'written' %}
+        <textarea name="question_{{ q.id }}" rows="4" cols="50" placeholder="Your answer here..."></textarea>
+      {% endif %}
+    </div>
+    <hr>
+  {% endfor %}
+
+  <button type="submit">Submit Test</button>
+</form>
+
+
+
+</body>
+</html>
