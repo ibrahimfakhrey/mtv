@@ -203,6 +203,14 @@ def load_user(user_id):
     return Register1.query.get(int(user_id))
 
 
+# Serve uploaded files from the configured UPLOAD_FOLDER. On Railway this
+# is the persistent volume (/data/uploads); locally it's static/uploads.
+# This route overrides Flask's default /static/uploads/* handler.
+@app.route('/static/uploads/<path:filename>')
+def serve_upload(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+
 # ────────────────────────────────────────────────────────────────────────────
 # TEMPORARY: one-time data seed route. Remove after seeding the Railway volume.
 # Requires the SEED_TOKEN env var to be set; otherwise returns 404.
