@@ -202,6 +202,80 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return Register1.query.get(int(user_id))
 
+
+# ────────────────────────────────────────────────────────────────────────────
+# TEMPORARY: one-time data seed route. Remove after seeding the Railway volume.
+# Requires the SEED_TOKEN env var to be set; otherwise returns 404.
+# ────────────────────────────────────────────────────────────────────────────
+app.config['MAX_CONTENT_LENGTH'] = 200 * 1024 * 1024  # allow 200 MB uploads for seeding
+
+@app.route('/_seed', methods=['GET', 'POST'])
+def seed_data():
+    expected = os.environ.get('SEED_TOKEN')
+    if not expected:
+        abort(404)
+    token = request.values.get('token')
+    if token != expected:
+        abort(403)
+
+    upload_dir = app.config['UPLOAD_FOLDER']
+    data_root = os.path.dirname(upload_dir.rstrip('/')) or '/data'
+    db_path = os.path.join(data_root, 'users.db')
+
+    if request.method == 'GET':
+        return f'''<!doctype html><meta charset=utf-8>
+<title>Seed</title>
+<style>body{{font-family:system-ui;max-width:560px;margin:40px auto;padding:0 16px}}code{{background:#eee;padding:2px 6px;border-radius:4px}}</style>
+<h1>One-time data seed</h1>
+<p>Data root: <code>{data_root}</code></p>
+<p>DB target: <code>{db_path}</code></p>
+<p>Uploads target: <code>{upload_dir}</code></p>
+<form method=post enctype=multipart/form-data>
+  <input type=hidden name=token value="{token}">
+  <p><label>users.db file:<br><input type=file name=users_db></label></p>
+  <p><label>uploads.zip file:<br><input type=file name=uploads_zip></label></p>
+  <p><button type=submit>Upload</button></p>
+</form>'''
+
+    log = []
+
+    f = request.files.get('users_db')
+    if f and f.filename:
+        os.makedirs(data_root, exist_ok=True)
+        f.save(db_path)
+        log.append(f'wrote {db_path} ({os.path.getsize(db_path)} bytes)')
+        db.engine.dispose()
+        log.append('disposed sqlalchemy engine (new queries will read the new DB)')
+
+    f = request.files.get('uploads_zip')
+    if f and f.filename:
+        import zipfile, tempfile
+        os.makedirs(upload_dir, exist_ok=True)
+        tmp_path = tempfile.mktemp(suffix='.zip')
+        f.save(tmp_path)
+        try:
+            with zipfile.ZipFile(tmp_path) as zf:
+                extracted = 0
+                for member in zf.namelist():
+                    if member.endswith('/'):
+                        continue
+                    name = os.path.basename(member)
+                    if not name or name.startswith('.') or '__MACOSX' in member:
+                        continue
+                    with zf.open(member) as src, open(os.path.join(upload_dir, name), 'wb') as dst:
+                        dst.write(src.read())
+                    extracted += 1
+            log.append(f'extracted {extracted} files into {upload_dir}')
+        finally:
+            try:
+                os.unlink(tmp_path)
+            except OSError:
+                pass
+
+    log.append('done')
+    return '<pre>' + '\n'.join(log) + '</pre>'
+# ────────────────────────────────────────────────────────────────────────────
+
 @app.route("/")
 def main():
     # Get all uploaded files with their cover images
