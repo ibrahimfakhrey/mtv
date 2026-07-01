@@ -918,8 +918,7 @@ def training15():
 
 @app.route('/upcoming_events')
 def upcoming_events():
-    # Simulate the current datetime as January 2025 for this example
-    current_datetime = datetime.strptime("2026-06-01", "%Y-%m-%d")
+    current_datetime = datetime.now()
 
 
     # Extract the year and month for comparison
