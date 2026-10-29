@@ -38,6 +38,12 @@ mail = Mail(app)
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-only-change-me')
 
+GA_ID = os.environ.get('GA_ID', 'G-DN1B5SFW6G')
+
+@app.context_processor
+def inject_ga():
+    return {'GA_ID': GA_ID}
+
 # Tell browsers (and any CDN) to cache static files for 30 days.
 # Image/CSS/JS URLs in this app don't change, so this is safe.
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 60 * 60 * 24 * 30  # 30 days
