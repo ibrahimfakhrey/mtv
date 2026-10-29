@@ -525,6 +525,8 @@
                         <th><i class="fas fa-user"></i> First Name</th>
                         <th><i class="fas fa-user"></i> Last Name</th>
                         <th><i class="fas fa-at"></i> Username</th>
+                                                <th><i class="fas fa-envelope"></i> Email</th>
+                        <th><i class="fas fa-phone"></i> Mobile</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -533,6 +535,8 @@
                         <td>{{ user.first_n }}</td>
                         <td>{{ user.last_n }}</td>
                         <td>{{ user.username }}</td>
+                                                <td>{{ user.email or '-' }}</td>
+                        <td>{{ user.contact_number or '-' }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

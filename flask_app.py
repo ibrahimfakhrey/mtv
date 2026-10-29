@@ -99,6 +99,8 @@ with app.app_context():
         last_n = db.Column(db.String(1000))
         username = db.Column(db.String(1000))
         password = db.Column(db.String(1000))
+        email = db.Column(db.String(255))
+        contact_number = db.Column(db.String(30))
 
         def set_password(self, password):
             self.password = generate_password_hash(password, method='pbkdf2:sha256')
@@ -181,6 +183,14 @@ with app.app_context():
 
     db.create_all()
 
+    from sqlalchemy import inspect, text
+    _cols = [c['name'] for c in inspect(db.engine).get_columns('register1')]
+    with db.engine.begin() as conn:
+        if 'email' not in _cols:
+            conn.execute(text('ALTER TABLE register1 ADD COLUMN email VARCHAR(255)'))
+        if 'contact_number' not in _cols:
+            conn.execute(text('ALTER TABLE register1 ADD COLUMN contact_number VARCHAR(30)'))
+
     class MyModelView(ModelView):
         def is_accessible(self):
             return False
@@ -206,6 +216,16 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return Register1.query.get(int(user_id))
 
+from functools import wraps
+
+def admin_required(f):
+    @wraps(f)
+    @login_required
+    def wrapper(*args, **kwargs):
+        if current_user.username != ADMIN_USERNAME:
+            abort(403)
+        return f(*args, **kwargs)
+    return wrapper
 
 # Serve uploaded files from the configured UPLOAD_FOLDER. On Railway this
 # is the persistent volume (/data/uploads); locally it's static/uploads.
@@ -260,13 +280,16 @@ def register():
         last_n = request.form['last_n']
         username = request.form['username']
         password = request.form['password']
+        email = request.form['email']
+        contact_number = request.form['contact_number']
 
         existing_user = Register1.query.filter_by(username=username).first()
         if existing_user:
             flash('Username already exists. Try another one.', 'error')
             return redirect(url_for('register'))
 
-        new_user = Register1(first_n=first_n, last_n=last_n, username=username)
+        new_user = Register1(first_n=first_n, last_n=last_n, username=username,
+                             email=email, contact_number=contact_number)
         new_user.set_password(password)
 
         db.session.add(new_user)
@@ -304,7 +327,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/upload_file', methods=['POST'])
-@login_required
+@admin_required
 def upload_file():
     file = request.files['file']
 
@@ -345,7 +368,7 @@ def upload_file():
     return redirect(url_for('admin_dashboard'))
 
 @app.route("/delete_file/<int:file_id>", methods=["POST"])
-@login_required
+@admin_required
 def delete_file(file_id):
 
     file = UploadedFile1.query.get_or_404(file_id)
@@ -374,11 +397,8 @@ def delete_file(file_id):
     return redirect(url_for('admin_dashboard'))
 
 
-
-
-
 @app.route('/admin_dashboard')
-@login_required
+@admin_required
 def admin_dashboard():
     users = Register1.query.all()
     uploaded_files = UploadedFile1.query.all()
@@ -389,6 +409,7 @@ def admin_dashboard():
 
 
 @app.route('/create_test', methods=['POST'])
+@admin_required
 def create_test():
     test_title = request.form['title']
     test_type = request.form['test_type']
@@ -465,6 +486,7 @@ def submit_test():
     return "Test submitted successfully!"
 
 @app.route('/delete_test/<int:test_id>', methods=['POST'])
+@admin_required
 def delete_test(test_id):
     test = Test.query.get_or_404(test_id)
     db.session.delete(test)
@@ -544,6 +566,7 @@ def take_test(test_id):
 
 
 @app.route('/view_submissions/<int:test_id>')
+@admin_required
 def view_submissions(test_id):
     answers = StudentAnswer.query.filter_by(test_id=test_id).all()
     return render_template('view_submissions.html', answers=answers)
@@ -578,7 +601,7 @@ def view_result(test_id):
     return render_template('view_result.html', test=test, result=result, score=score)
 
 @app.route('/upload_student_file', methods=['POST'])
-@login_required
+@admin_required
 def upload_student_file():
     student_id = request.form['student_id']
     file_category = request.form['file_category']
