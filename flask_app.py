@@ -199,7 +199,7 @@ with app.app_context():
 
     class MyModelView(ModelView):
         def is_accessible(self):
-            return True
+            return False
 
 admin = Admin(app)
 admin.add_view(MyModelView(Course, db.session))
